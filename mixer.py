@@ -24,39 +24,3 @@ print("Solved!!!")
 cr.sliders_backwards()
 
 exit()
-
-# set_servo_speeds(speed_unrestricted)
-cr.set_servo_speeds(cr.servo_speed)
-
-cr.initialise()
-
-print("Mixing...")
-cr.go("f")
-cr.go("u")
-cr.go("f")
-cr.go("u")
-cr.go("r")
-cr.go("u")
-cr.go("r")
-cr.go("u")
-cr.go("r")
-cr.go("b")
-
-print("Solving...")
-cr.go("b_inv")
-cr.go("r_inv")
-cr.go("u_inv")
-cr.go("r_inv")
-cr.go("u_inv")
-cr.go("r_inv")
-cr.go("u_inv")
-cr.go("f_inv")
-cr.go("u_inv")
-cr.go("f_inv")
-
-cr.sliders_backwards()
-    
-# for x in range(3400, 6300, 50):
-#     print(x)
-#     servo.setTarget(slider_d, x)
-#     sleep(0.2)
