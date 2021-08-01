@@ -13,7 +13,6 @@ slider_l = 7
 slider_u = 3
 slider_d = 9
 
-# FRUBLD
 notation_dictionary = {
     "F": "F",
     "R": "R",
@@ -26,13 +25,40 @@ notation_dictionary = {
     "U'": "U_INV",
     "B'": "B_INV",
     "L'": "L_INV",
-    "D'": "D_INV"
+    "D'": "D_INV",
+    "F2": "F2",
+    "R2": "R2",
+    "U2": "U2",
+    "B2": "B2",
+    "L2": "L2",
+    "D2": "D2"
+}
+
+inverse_notation_dictionary = {
+    "F": "F_INV",
+    "R": "R_INV",
+    "U": "U_INV",
+    "B": "B_INV",
+    "L": "L_INV",
+    "D": "D_INV",
+    "F'": "F",
+    "R'": "R",
+    "U'": "U",
+    "B'": "B",
+    "L'": "L",
+    "D'": "D",
+    "F2": "F2",
+    "R2": "R2",
+    "U2": "U2",
+    "B2": "B2",
+    "L2": "L2",
+    "D2": "D2"
 }
 
 # Speed combinations that work well: 0.4 / 80
 speed_unrestricted = 0
 time_between_actions = .4
-servo_speed = 80
+servo_speed = speed_unrestricted
 
 # Configure gripper 0 Degree and 90 Degree targets
 gripper_r_0 = 3000
