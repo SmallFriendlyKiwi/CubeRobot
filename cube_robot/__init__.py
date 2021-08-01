@@ -136,7 +136,6 @@ def initialise(load_time: int):
     sliders_forwards()
 
 def go(action: str):
-    action = action.upper()
     if action == "R":
         rotate_clockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
     

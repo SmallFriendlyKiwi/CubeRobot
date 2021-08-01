@@ -1,10 +1,10 @@
 import cube_robot as cr
 from time import sleep
 
-scramble = input("Enter cube scramble: ")
 initialisation_time = 10
-# scramble = "B2 R' B2 U L2 B D' U2 F R2 L D"
 
+scramble = input("Enter cube scramble: ")
+scramble = scramble.upper()
 scramble_list = scramble.split()
 
 cr.set_servo_speeds(cr.servo_speed)
