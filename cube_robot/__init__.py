@@ -128,11 +128,11 @@ def set_servo_speeds(speed: int):
     servo.setSpeed(slider_u, speed)
     servo.setSpeed(slider_d, speed)
 
-def initialise():
+def initialise(load_time: int):
     sliders_backwards()
     sleep(time_between_actions)
     grippers_0()
-    sleep(10)
+    sleep(load_time)
     sliders_forwards()
 
 def go(action: str):
@@ -198,12 +198,16 @@ def go(action: str):
         go("D")
     
     elif action == "F2":
-        go("F")
-        go("F")
+        set_front_back()
+        rotate_clockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
+        rotate_clockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
+        reset_front_back()
     
     elif action == "B2":
-        go("B")
-        go("B")
+        set_front_back()
+        rotate_clockwise(gripper_l, slider_l, gripper_l_0, gripper_l_90, slider_l_f, slider_l_b)
+        rotate_clockwise(gripper_l, slider_l, gripper_l_0, gripper_l_90, slider_l_f, slider_l_b)
+        reset_front_back()
     
 def rotate_clockwise(gripper: int, slider: int, gripper_0: int, gripper_90: int, slider_f: int, slider_b: int):
     servo.setTarget(gripper,gripper_90)

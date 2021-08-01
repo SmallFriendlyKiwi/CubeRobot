@@ -1,21 +1,35 @@
 import cube_robot as cr
+from time import sleep
 
-# scramble = input("Enter cube scramble: ")
-# scramble = "R' U B' D L2 R F2 U' L U' L R' F L U' D2 R2 L D B2 U' R L D' R2"
-scramble = "B2 R' B2 U L2 B D' U2 F R2"
+scramble = input("Enter cube scramble: ")
+initialisation_time = 10
+# scramble = "B2 R' B2 U L2 B D' U2 F R2 L D"
 
 scramble_list = scramble.split()
 
 cr.set_servo_speeds(cr.servo_speed)
-cr.initialise()
 
-print("Scrambling Cube...")
+# Initialise the robot so that it can
+# accept a cube ready for scrambling
+# or solving
+print("Insert your cube ready for scrambling and solving...")
+print("You have " + str(initialisation_time) + " seconds to insert the cube - mind your fingers...")
+cr.initialise(initialisation_time)
+
+print("Scrambling the Cube...")
 for step in scramble_list:
-    print("Currently processing step: " + step)
+    print("Processing step: " + step)
     step = cr.notation_dictionary[step]
     cr.go(step)
 
-print("Solving Cube...")
+cr.sliders_backwards()
+
+print("Please wait...")
+sleep(5)
+
+cr.sliders_forwards()
+
+print("Solving the cube...")
 for step in reversed(scramble_list):
     step = cr.inverse_notation_dictionary[step]
     cr.go(step)
