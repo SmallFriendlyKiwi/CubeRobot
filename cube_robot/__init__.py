@@ -13,8 +13,23 @@ slider_l = 7
 slider_u = 3
 slider_d = 9
 
-# Speed combinations that work well: 0.4 / 80
+# FRUBLD
+notation_dictionary = {
+    "F": "F",
+    "R": "R",
+    "U": "U",
+    "B": "B",
+    "L": "L",
+    "D": "D",
+    "F'": "F_INV",
+    "R'": "R_INV",
+    "U'": "U_INV",
+    "B'": "B_INV",
+    "L'": "L_INV",
+    "D'": "D_INV"
+}
 
+# Speed combinations that work well: 0.4 / 80
 speed_unrestricted = 0
 time_between_actions = .4
 servo_speed = 80
@@ -95,39 +110,75 @@ def initialise():
     sliders_forwards()
 
 def go(action: str):
-    if action == "r":
+    action = action.upper()
+    if action == "R":
         rotate_clockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
-    elif action == "l":
+    
+    elif action == "L":
         rotate_clockwise(gripper_l, slider_l, gripper_l_0, gripper_l_90, slider_l_f, slider_l_b)
-    elif action == "u":
+    
+    elif action == "U":
         rotate_clockwise(gripper_u, slider_u, gripper_u_0, gripper_u_90, slider_u_f, slider_u_b)
-    elif action == "d":
+    
+    elif action == "D":
         rotate_clockwise(gripper_d, slider_d, gripper_d_0, gripper_d_90, slider_d_f, slider_d_b)
-    elif action == "f":
+    
+    elif action == "F":
         set_front_back()
         rotate_clockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
         reset_front_back()
-    elif action == "b":
+    
+    elif action == "B":
         set_front_back()
         rotate_clockwise(gripper_l, slider_l, gripper_l_0, gripper_l_90, slider_l_f, slider_l_b)
         reset_front_back()
-    elif action == "r_inv":
+    
+    elif action == "R_INV":
         rotate_anticlockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
-    elif action == "l_inv":
+    
+    elif action == "L_INV":
         rotate_anticlockwise(gripper_l, slider_l, gripper_l_0, gripper_l_90, slider_l_f, slider_l_b)
-    elif action == "u_inv":
+    
+    elif action == "U_INV":
         rotate_anticlockwise(gripper_u, slider_u, gripper_u_0, gripper_u_90, slider_u_f, slider_u_b)
-    elif action == "d_inv":
+    
+    elif action == "D_INV":
         rotate_anticlockwise(gripper_d, slider_d, gripper_d_0, gripper_d_90, slider_d_f, slider_d_b)
-    elif action == "f_inv":
+    
+    elif action == "F_INV":
         set_front_back()
         rotate_anticlockwise(gripper_r, slider_r, gripper_r_0, gripper_r_90, slider_r_f, slider_r_b)
         reset_front_back()
-    elif action == "b_inv":
+    
+    elif action == "B_INV":
         set_front_back()
         rotate_anticlockwise(gripper_l, slider_l, gripper_l_0, gripper_l_90, slider_l_f, slider_l_b)
         reset_front_back()
 
+    elif action == "R2":
+        go("R")
+        go("R")
+    
+    elif action == "L2":
+        go("L")
+        go("L")
+    
+    elif action == "U2":
+        go("U")
+        go("U")
+    
+    elif action == "D2":
+        go("D")
+        go("D")
+    
+    elif action == "F2":
+        go("F")
+        go("F")
+    
+    elif action == "B2":
+        go("B")
+        go("B")
+    
 def rotate_clockwise(gripper: int, slider: int, gripper_0: int, gripper_90: int, slider_f: int, slider_b: int):
     servo.setTarget(gripper,gripper_90)
     sleep(time_between_actions)

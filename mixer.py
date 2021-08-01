@@ -1,4 +1,4 @@
-import cube_robot
+import cube_robot as cr
 
 # scramble = input("Enter cube scramble: ")
 scramble = "R' U B' D L2 R F2 U' L U' L R' F L U' D2 R2 L D B2 U' R L D' R2"
@@ -11,35 +11,35 @@ for notation in scramble_list:
 exit()
 
 # set_servo_speeds(speed_unrestricted)
-set_servo_speeds(servo_speed)
+cr.set_servo_speeds(cr.servo_speed)
 
-initialise()
+cr.initialise()
 
 print("Mixing...")
-go("f")
-go("u")
-go("f")
-go("u")
-go("r")
-go("u")
-go("r")
-go("u")
-go("r")
-go("b")
+cr.go("f")
+cr.go("u")
+cr.go("f")
+cr.go("u")
+cr.go("r")
+cr.go("u")
+cr.go("r")
+cr.go("u")
+cr.go("r")
+cr.go("b")
 
 print("Solving...")
-go("b_inv")
-go("r_inv")
-go("u_inv")
-go("r_inv")
-go("u_inv")
-go("r_inv")
-go("u_inv")
-go("f_inv")
-go("u_inv")
-go("f_inv")
+cr.go("b_inv")
+cr.go("r_inv")
+cr.go("u_inv")
+cr.go("r_inv")
+cr.go("u_inv")
+cr.go("r_inv")
+cr.go("u_inv")
+cr.go("f_inv")
+cr.go("u_inv")
+cr.go("f_inv")
 
-sliders_backwards()
+cr.sliders_backwards()
     
 # for x in range(3400, 6300, 50):
 #     print(x)
