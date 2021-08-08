@@ -1,11 +1,27 @@
 import cube_robot as cr
+import kociemba
 from time import sleep
 
 initialisation_time = 10
 
-scramble = input("Enter cube scramble: ")
-scramble = scramble.upper()
-scramble_list = scramble.split()
+scramble_check: bool = False
+
+#cube_definition_string: str = "WWWWWWWWWRRRRRRRRRGGGGGGGGGYYYYYYYYYOOOOOOOOOBBBBBBBBB"
+cube_definition_string: str = "BOBGWRGRGYYOORWYBYOBORGGYBOGYBOYWGGBRYWWOWRBRWYWGBORRW"
+cube_definition_string = cr.colour_to_face(cube_definition_string)
+
+print ("Searching for the solution to the Cube Definition String: " + cube_definition_string)
+# cr.colour_to_face(cube_definition_string)
+solution_string = kociemba.solve(cube_definition_string)
+print("Solution found: " + solution_string)
+
+exit()
+
+while scramble_check == False:
+    scramble = input("Enter cube scramble: ")
+    scramble = scramble.upper()
+    scramble_list = scramble.split()
+    scramble_check = cr.check_scramble(scramble_list)
 
 cr.set_servo_speeds(cr.servo_speed)
 
