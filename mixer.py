@@ -5,6 +5,7 @@ from time import sleep
 initialisation_time = 10
 scramble_check: bool = False
 
+print(chr(27) + "[2J")
 print("")
 print("              |************|")
 print("              |*W1**W2**W3*|")
