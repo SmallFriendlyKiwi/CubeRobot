@@ -1,2 +1,13 @@
 maestro/__pycache__/__init__.cpython-39.pyc
 cube_robot/__pycache__/__init__.cpython-39.pyc
+cube_robot/__pycache__/__init__.cpython-39.pyc
+kociemba/__pycache__/__init__.cpython-39.pyc
+kociemba/pykociemba/__pycache__/__init__.cpython-39.pyc
+kociemba/pykociemba/__pycache__/color.cpython-39.pyc
+kociemba/pykociemba/__pycache__/coordcube.cpython-39.pyc
+kociemba/pykociemba/__pycache__/corner.cpython-39.pyc
+kociemba/pykociemba/__pycache__/cubiecube.cpython-39.pyc
+kociemba/pykociemba/__pycache__/edge.cpython-39.pyc
+kociemba/pykociemba/__pycache__/facecube.cpython-39.pyc
+kociemba/pykociemba/__pycache__/facelet.cpython-39.pyc
+kociemba/pykociemba/__pycache__/search.cpython-39.pyc
