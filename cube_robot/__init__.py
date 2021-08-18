@@ -124,7 +124,13 @@ slider_l_f = slider_l_b + 3250
 #              |*D7**D8**D9*|
 #              |************|
 #
-# Face layout for colour
+# A cube definition string "UBL..." means that in position U1 we have the U-color,
+# in position U2 we have the B-color, in position U3 we have the L color etc. according
+# to the order U1, U2, U3, U4, U5, U6, U7, U8, U9, R1, R2, R3, R4, R5, R6, R7, R8, R9, 
+# F1, F2, F3, F4, F5, F6, F7, F8, F9, D1, D2, D3, D4, D5, D6, D7, D8, D9, L1, L2, L3, 
+# L4, L5, L6, L7, L8, L9, B1, B2, B3, B4, B5, B6, B7, B8, B9.
+
+# Face layout for colour ensuring that Green is F and white is U
 #
 #              |************|
 #              |*W1**W2**W3*|
@@ -147,14 +153,24 @@ slider_l_f = slider_l_b + 3250
 #              |************|
 #              |*Y7**Y8**Y9*|
 #              |************|
+# 
+# A cube definition string "GYO..." means that in position W1 we have the G-color,
+# in position W2 we have the Y-color, in position W3 we have the O color etc. according
+# to the order W1, W2, W3, W4, W5, W6, W7, W8, W9, R1, R2, R3, R4, R5, R6, R7, R8, R9, 
+# G1, G2, G3, G4, G5, G6, G7, G8, G9, Y1, Y2, Y3, Y4, Y5, Y6, Y7, Y8, Y9, O1, O2, O3, 
+# O4, O5, O6, O7, O8, O9, B1, B2, B3, B4, B5, B6, B7, B8, B9.
+#
+# Where:
+#
+# W = White
+# R = Red
+# G = Green
+# Y = Yellow
+# O = Orange
+# B = Blue
+#
 
-# A cube definition string "UBL..." means that in position U1 we have the U-color,
-# in position U2 we have the B-color, in position U3 we have the L color etc. according
-# to the order U1, U2, U3, U4, U5, U6, U7, U8, U9, R1, R2, R3, R4, R5, R6, R7, R8, R9, 
-# F1, F2, F3, F4, F5, F6, F7, F8, F9, D1, D2, D3, D4, D5, D6, D7, D8, D9, L1, L2, L3, 
-# L4, L5, L6, L7, L8, L9, B1, B2, B3, B4, B5, B6, B7, B8, B9.
-
-# servo = maestro.Controller()
+servo = maestro.Controller()
 
 def colour_to_face(definition_string: str):
     result = ""
