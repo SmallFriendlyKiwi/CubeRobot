@@ -3,53 +3,72 @@ import kociemba
 from time import sleep
 
 initialisation_time = 10
-
 scramble_check: bool = False
 
-#cube_definition_string: str = "WWWWWWWWWRRRRRRRRRGGGGGGGGGYYYYYYYYYOOOOOOOOOBBBBBBBBB"
-cube_definition_string: str = "BOBGWRGRGYYOORWYBYOBORGGYBOGYBOYWGGBRYWWOWRBRWYWGBORRW"
+print("")
+print("              |************|")
+print("              |*W1**W2**W3*|")
+print("              |************|")
+print("              |*W4**W5**W6*|")
+print("              |************|")
+print("              |*W7**W8**W9*|")
+print("              |************|")
+print("  ************|************|************|************")
+print("  *O1**O2**O3*|*G1**G2**G3*|*R1**R2**R3*|*B1**B2**B3*")
+print("  ************|************|************|************")
+print("  *O4**O5**O6*|*G4**G5**G6*|*R4**R5**R6*|*B4**B5**B6*")
+print("  ************|************|************|************")
+print("  *O7**O8**O9*|*G7**G8**G9*|*R7**R8**R9*|*B7**B8**B9*")
+print("  ************|************|************|************")
+print("              |************|")
+print("              |*Y1**Y2**Y3*|")
+print("              |************|")
+print("              |*Y4**Y5**Y6*|")
+print("              |************|")
+print("              |*Y7**Y8**Y9*|")
+print("              |************|")
+print("")
+print("Orient the cube with green facing the front and white facing up")
+print("")
+print("A cube definition string 'GYO...' means that in position W1 we have Green,")
+print("in position W2 we have Yellow, in position W3 we have Orange etc. according")
+print("to the order W1, W2, W3, W4, W5, W6, W7, W8, W9, R1, R2, R3, R4, R5, R6, R7, R8, R9,")
+print("G1, G2, G3, G4, G5, G6, G7, G8, G9, Y1, Y2, Y3, Y4, Y5, Y6, Y7, Y8, Y9, O1, O2, O3,")
+print("O4, O5, O6, O7, O8, O9, B1, B2, B3, B4, B5, B6, B7, B8, B9.")
+print("")
+print("The face order is: White, Red, Green, Yellow, Orange, Blue")
+print("")
+
+cube_definition_string = input("Enter Cube Definition String: ")
+cube_definition_string = cube_definition_string.upper()
 cube_definition_string = cr.colour_to_face(cube_definition_string)
 
+print("")
 print ("Searching for the solution to the Cube Definition String: " + cube_definition_string)
-# cr.colour_to_face(cube_definition_string)
 solution_string = kociemba.solve(cube_definition_string)
+print("")
 print("Solution found: " + solution_string)
-
-exit()
-
-while scramble_check == False:
-    scramble = input("Enter cube scramble: ")
-    scramble = scramble.upper()
-    scramble_list = scramble.split()
-    scramble_check = cr.check_scramble(scramble_list)
+print("")
+print("Insert your cube ready for solving...")
+print("")
+print("You have " + str(initialisation_time) + " seconds to insert the cube - mind your fingers...")
+print("")
+print("Solving the Cube...")
+print("")
 
 cr.set_servo_speeds(cr.servo_speed)
-
-# Initialise the robot so that it can
-# accept a cube ready for scrambling
-# or solving
-print("Insert your cube ready for scrambling and solving...")
-print("You have " + str(initialisation_time) + " seconds to insert the cube - mind your fingers...")
 cr.initialise(initialisation_time)
 
-print("Scrambling the Cube...")
-for step in scramble_list:
-    print("Processing step: " + step)
-    step = cr.notation_dictionary[step]
-    cr.go(step)
+move_list = solution_string.split()
+
+for move in move_list:
+    print("Processing move: " + move)
+    move = cr.notation_dictionary[move]
+    cr.go(move)
 
 cr.sliders_backwards()
 
-print("Please wait...")
-sleep(5)
-
-cr.sliders_forwards()
-
-print("Solving the cube...")
-for step in reversed(scramble_list):
-    step = cr.inverse_notation_dictionary[step]
-    cr.go(step)
-
+print("")
 print("Solved!!!")
 cr.sliders_backwards()
 
